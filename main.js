@@ -29,15 +29,20 @@
 		this.board = board;
 		this.board.bars.push(this);
 		this.kind = "rectangle";
+		this.speed = 10;
 	}
 
 	self.Bar.prototype = {
 		down : function(){
-
+			this.y += this.speed;
 		},
 
 		up: function(){
+			this.y -= this.speed;
+		},
 
+		toString: function(){
+			return "x: " + this.x + "y: " + this.y;
 		}
 	}
 
@@ -78,7 +83,14 @@
 
 })();
 
-window.addEventListener("load",main);
+document.addEventListener("keydown",function(ev){
+	if(ev.keyCode == 38){
+		bar.up();
+	}else if(ev.keyCode == 40){
+		bar.up();
+	}
+});
+self.addEventListener("load",main);
 
 function main (){
 
