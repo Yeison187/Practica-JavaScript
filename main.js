@@ -167,14 +167,17 @@
 
 		switch(element.kind){
 			case "rectangle":
+			ctx.fillStyle ="#9F0893";
 			ctx.fillRect(element.x,element.y,element.width,element.height);
 			break;
 
 			case "circle":
+				ctx.fillStyle ="#9F0893";
 			ctx.beginPath();
 			ctx.arc(element.x,element.y,element.radius,0,7);
 			ctx.fill();
 			ctx.closePath();
+			
 			break;
 		}
 	}
@@ -182,8 +185,8 @@
 })();
 
 var board = new Board(800,400);
-var bar = new Bar (20,100,40,100,board);
-var bar_2 = new Bar (700,100,40,100,board);
+var bar = new Bar (20,100,20,100,board);
+var bar_2 = new Bar (740,100,20,100,board);
 var canvas = document.getElementById("canvas");
 var board_view = new BoardView(canvas,board);
 var ball = new Ball(350,100,10,board);
